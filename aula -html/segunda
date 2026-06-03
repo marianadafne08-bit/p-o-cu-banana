@@ -1,0 +1,175 @@
+
+
+Subdocs
+
+Arquivos
+
+Áudio
+
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+
+            <ul>
+
+                <li>HOME</li>
+
+                <li>ABOUT</li>
+
+                <li>CONTACT</li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <main id="radioapple">
+
+        <section>
+
+            <h1 class="radioapple">Minha primeira cessão</h1>
+
+        </section>
+
+
+
+        <section>
+
+            <button class="botao">Clique aqui</button>
+
+        </section>
+
+
+
+        <section class="Card">
+
+            <p>Card</p>
+
+        </section>
+
+        <section>
+
+            <h2>Minha segunda seção</h2>
+
+        </section>
+
+    </main>
+
+
+
+    <footer>
+
+        <p>Este é meu footer</p><!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+
+            <ul>
+
+                <li>HOME</li>
+
+                <li>ABOUT</li>
+
+                <li>CONTACT</li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <main>
+
+        <section>
+
+            <h1>Minha primeira seção</h1>
+
+        </section>
+
+
+
+        <section>
+
+            <button>Clique aqui</button>
+
+        </section>
+
+
+
+        <section>
+
+            <p>Card</p>
+
+        </section>
+
+        <section>
+
+            <h2>Minha segunda seção</h2>
+
+        </section>
+
+    </main>
+
+
+
+    <footer>
+
+        <p>Este é meu footer</p>
+
+    </footer>
+
+</body>
+
+</html>
+
+    </footer>
+
+</body>
+
+</html>
+
+
+
+
+

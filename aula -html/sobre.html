@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio do Termômetro de Cliques</title>
+    <style>
+        /* CSS: Deixando o visual bonito */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        #alvo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: none;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.1s, background-color 0.3s;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        #alvo:active {
+            transform: scale(0.9); /* Efeito de apertar */
+        }
+
+        #alvo:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .stats {
+            margin-bottom: 20px;
+        }
+
+        h2 { color: #2c3e50; margin: 5px; }
+        #tempo { color: #e67e22; font-size: 24px; }
+        #contador { color: #2980b9; font-size: 48px; }
+
+        button#reset {
+            margin-top: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="stats">
+            <h2 id="tempo">Tempo: 10s</h2>
+            <h2 id="contador">0</h2>
+            <p>Cliques</p>
+        </div>
+
+        <button id="alvo">CLIQUE AQUI!</button>
+        <br>
+        <button id="reset" onclick="reiniciar()">Reiniciar Jogo</button>
+    </div>
+
+    <script>
+        // Lógica de Programação (Similar ao C)
+        let cliques = 0;
+        let tempoRestante = 10;
+        let timer = null;
+        let jogoRodando = false;
+
+        const btnAlvo = document.getElementById("alvo");
+        const txtTempo = document.getElementById("tempo");
+        const txtContador = document.getElementById("contador");
+
+        // Função que detecta o clique
+        btnAlvo.onclick = function() {
+            // Se o jogo ainda não começou, inicia o cronômetro no primeiro clique
+            if (!jogoRodando && tempoRestante === 10) {
+                iniciarCronometro();
+                jogoRodando = true;
+            }
+
+            if (jogoRodando) {
+                cliques++;
+                txtContador.innerText = cliques;
+                
+                // Extra: Muda a cor aleatoriamente para ficar dinâmico
+                const r = Math.floor(Math.random() * 255);
+                const g = Math.floor(Math.random() * 255);
+                btnAlvo.style.backgroundColor = `rgb(${r},${g},50)`;
+            }
+        };
+
+        function iniciarCronometro() {
+            timer = setInterval(function() {
+                tempoRestante--;
+                txtTempo.innerText = "Tempo: " + tempoRestante + "s";
+
+                if (tempoRestante <= 0) {
+                    clearInterval(timer);
+                    jogoRodando = false;
+                    btnAlvo.disabled = true;
+                    
+                    // Lógica de classificação (Ranking)
+                    let msg = "";
+                    if (cliques < 30) msg = "Nível: Tartaruga 🐢";
+                    else if (cliques < 60) msg = "Nível: Dedo Veloz ⚡";
+                    else msg = "Nível: MESTRE DO CLICK! 🔥";
+
+                    alert("Fim de jogo! Você fez " + cliques + " cliques.\n" + msg);
+                }
+            }, 1000); // 1000ms = 1 segundo
+        }
+
+        function reiniciar() {
+            clearInterval(timer);
+            cliques = 0;
+            tempoRestante = 10;
+            jogoRodando = false;
+            btnAlvo.disabled = false;
+            btnAlvo.style.backgroundColor = "#e74c3c";
+            txtContador.innerText = "0";
+            txtTempo.innerText = "Tempo: 10s";
+        }
+    </script>
+
+</body>
+</html>
